@@ -1,0 +1,15 @@
+update_prompt() {
+  local custom_user="mika-chang"
+  local time_color="\[\e[38;5;213m\]"
+  local user_color="\[\e[38;5;141m\]"
+  local host_color="\[\e[38;5;114m\]"
+  local dir_color="\[\e[38;5;222m\]"
+  local reset="\[\e[0m\]"
+
+  local est_time="$(TZ='America/New_York' date +%H:%M:%S) EST"
+  PS1="${user_color}${custom_user}${reset}@${host_color}\h${reset}:${dir_color}\w${reset} ${time_color}${est_time}${reset}\n\$ "
+}
+
+PROMPT_COMMAND=update_prompt
+alias kc="kubectl"
+
